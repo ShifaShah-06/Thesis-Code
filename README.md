@@ -1,7 +1,7 @@
-# AI-Rewriting and Reasoning Diversity in Student Essays: Analysis Pipeline
+# The Impact of AI on Academic Writing: A Paired Analysis of Syntactic Complexity and Reasoning Diversity
 
 This repository contains the core analysis code for the thesis:  
-**"How does AI rewriting shape syntactic style and reasoning diversity in student essays?"**  
+**"The Impact of AI on Academic Writing: A Paired Analysis of Syntactic Complexity and Reasoning Diversity"**  
 Author: Shifa Shah  
 MSc Behavioural and Data Science, University of Warwick
 
@@ -9,7 +9,7 @@ MSc Behavioural and Data Science, University of Warwick
 
 ## Overview
 
-This project analyses a large matched corpus of undergraduate psychology essays (2015–2025) and their AI-rewritten counterparts. The goal is to quantify how AI rewriting alters both the syntactic complexity and the diversity of explicit reasoning types in student academic writing.
+This project analyses a large matched corpus of undergraduate psychology essays (2016–2022) and their AI-rewritten counterparts. The goal is to quantify how AI rewriting alters both the syntactic complexity and the diversity of explicit reasoning types in student academic writing.
 
 ---
 
@@ -17,8 +17,6 @@ This project analyses a large matched corpus of undergraduate psychology essays 
 
 - `scripts/`: Python scripts for all main analyses
 - `data/`: Example data schema, not real student data (see below)
-- `results/`: (Optional) Key figures and tables exported from scripts
-
 ---
 
 ## Main scripts
@@ -34,14 +32,6 @@ This project analyses a large matched corpus of undergraduate psychology essays 
 | syntactic_eda_script.py           | EDA for syntactic features (plots, stats)                     |
 
 **Note:**  
-*Some minor preprocessing scripts (e.g., for joining multiple CSVs, or reformatting wide/long tables) are not included in this public repo to avoid clutter and dependency issues. If you need these helper scripts for full reproducibility, please contact me directly at [your.email@warwick.ac.uk](mailto:your.email@warwick.ac.uk) and I am happy to share.*
+*Some minor preprocessing scripts (e.g., for joining multiple CSVs, or reformatting wide/long tables) are not included in this public repo to avoid clutter and dependency issues. If you need these helper scripts for full reproducibility, please contact me directly at shifa.shah@warwick.ac.uk and I will be happy to share.*
 
 ---
-
-## Reproducing the analyses
-
-- Clone the repo and set up your Python environment:
-  ```bash
-  git clone https://github.com/your-user/ai-student-essays-thesis.git
-  cd ai-student-essays-thesis
-  pip install -r requirements.txt
