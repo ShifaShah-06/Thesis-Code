@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 from scipy import stats
 
 
-INPUT_CSV = Path(r"C:\Users\shifa\OneDrive\Desktop\Thesis\Corpora\syntactic_metrics_wide.csv")
-OUT_DIR   = Path(r"C:\Users\shifa\OneDrive\Desktop\Thesis\Corpora\syntactic_stats_plots")
+INPUT_CSV = Path(r"syntactic_metrics_wide.csv")
+OUT_DIR   = Path(r"syntactic_stats_plots")
 
 METRICS   = ["depth", "clausal_density", "nominalisations_per_1000"]
 CORPORA   = {"original": "_original", "global": "_global", "local": "_local"}
@@ -275,3 +275,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
