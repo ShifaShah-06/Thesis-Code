@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from scipy.stats import ttest_rel, wilcoxon
 
-WIDE_PATH =  r"C:\Users\shifa\OneDrive\Desktop\Thesis\Corpora\Reasoning Pipeline Output\reasoning_wide.csv"
+WIDE_PATH =  r"reasoning_wide.csv"
 METRICS = ["Deductive", "Inductive", "Abductive", "Analogical"]
 CORPUS_ORDER = ["original", "local", "global"]
 
@@ -26,7 +26,7 @@ for m in METRICS:
         })
 desc_stats = pd.DataFrame(desc_rows)
 desc_stats.to_csv("reasoning_descriptive_stats.csv", index=False)
-print("\n=== DESCRIPTIVE STATS SAVED: reasoning_descriptive_stats.csv ===\n")
+print("\nDESCRIPTIVE STATS SAVED: reasoning_descriptive_stats.csv\n")
 print(desc_stats)
 
 # ---- INFERENTIAL STATS ----
@@ -76,10 +76,11 @@ for m in METRICS:
 stats_df = pd.DataFrame(stats_rows)
 
 # ---- PRINT SUMMARY TABLE ----
-print("\n=== INFERENTIAL STATS (T-test + Wilcoxon) ===\n")
+print("\nINFERENTIAL STATS: \n")
 print(stats_df[["Metric", "Comparison", "N", "Mean_A", "Mean_B", "MeanDiff(A-B)", "t", "p", "dz", "sig(p<.05)", "W", "Wp", "sig_W(p<.05)"]].round(3).to_string(index=False))
 
 # ---- SAVE FULL STATS ----
 stats_df.to_csv("reasoning_inferential_stats.csv", index=False)
-print("\n=== FULL INFERENTIAL STATS SAVED: reasoning_inferential_stats.csv ===")
+print("\nFULL INFERENTIAL STATS SAVED: reasoning_inferential_stats.csv")
+
 
