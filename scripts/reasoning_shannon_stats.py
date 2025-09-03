@@ -12,9 +12,7 @@ dfw = pd.read_csv(INPUT)
 types = ["Deductive", "Inductive", "Abductive", "Analogical"]
 corpora = ["original", "global", "local"]
 
-# -------------
-# Long format
-# -------------
+
 rows = []
 for _, row in dfw.iterrows():
     base = {"Year_submission": row["Year_submission"], "ID": row["ID"]}
@@ -25,9 +23,7 @@ for _, row in dfw.iterrows():
             rows.append({**base, "corpus": corpus, "type": t, "rate_per_1000": rate})
 dfl = pd.DataFrame(rows)
 
-# -------------
-# Per-essay metrics: total rate, richness, Shannon H'
-# -------------
+
 def per_essay_metrics_safe(g):
     out = []
     for corpus in corpora:
@@ -51,9 +47,7 @@ per_essay = (dfl.groupby(["Year_submission", "ID"])
                .reset_index()
                .drop(columns=["level_2"]))
 
-# -------------
-# Paired deltas vs Original
-# -------------
+
 metrics = ["total_rate_per_1000", "richness_0to4", "shannon_H"]
 wide = per_essay.pivot(index=["Year_submission","ID"], columns="corpus", values=metrics)
 wide.columns = [f"{m}_{c}" for m, c in wide.columns]
@@ -63,9 +57,8 @@ for m in metrics:
     wide[f"delta_{m}_local_minus_original"] = wide[f"{m}_local"] - wide[f"{m}_original"]
     wide[f"delta_{m}_global_minus_original"] = wide[f"{m}_global"] - wide[f"{m}_original"]
 
-# -------------
-# Summaries
-# -------------
+#summaries
+
 summary_type = (dfl.groupby(["corpus","type"])["rate_per_1000"]
                   .agg(mean="mean", median="median", std="std", count="count")
                   .reset_index())
@@ -75,9 +68,8 @@ summary_metrics = (per_essay.groupby("corpus")[["total_rate_per_1000","richness_
 summary_metrics.columns = ['_'.join(col).strip() for col in summary_metrics.columns.values]
 summary_metrics = summary_metrics.reset_index()
 
-# -------------
-# Save outputs
-# -------------
+
+# save outputs
 Path("outputs").mkdir(exist_ok=True)
 dfl.to_csv("outputs/reasoning_long.csv", index=False)
 per_essay.to_csv("outputs/reasoning_per_essay_metrics.csv", index=False)
@@ -85,10 +77,7 @@ wide.to_csv("outputs/reasoning_per_essay_deltas.csv", index=False)
 summary_type.to_csv("outputs/reasoning_summary_by_type.csv", index=False)
 summary_metrics.to_csv("outputs/reasoning_summary_metrics.csv", index=False)
 
-# -------------
-# Figures (matplotlib, no custom colors)
-# -------------
-## ---- Figure 1 ----
+# Figures 
 g = (
     dfl.groupby(["type", "corpus"])["rate_per_1000"]
        .agg(mean="mean", sd="std", n="count")
@@ -98,7 +87,7 @@ g["se"]   = g["sd"] / np.sqrt(g["n"])
 g["ci95"] = 1.96 * g["se"]
 
 types   = ["Deductive", "Inductive", "Abductive", "Analogical"]
-corpora = ["original", "local", "global"]  # make sure these match dfl['corpus']
+corpora = ["original", "local", "global"]  
 labels  = {"original": "Original", "local": "Local", "global": "Global"}
 colors  = {"original": "#86be91", "local": "#509e90", "global": "#1f5b86"}
 
