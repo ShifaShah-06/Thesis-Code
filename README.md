@@ -16,7 +16,6 @@ This project analyses a large matched corpus of undergraduate psychology essays 
 ## Repository structure
 
 - `scripts/`: Python scripts for all main analyses
-- `data/`: .csv files for reasoning and syntactic analysis
 ---
 
 ## Main scripts
