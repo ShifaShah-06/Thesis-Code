@@ -148,12 +148,12 @@ def plot_global_local_ratio(df: pd.DataFrame, output_dir: Path) -> None:
 
 def main():
     # Path to CSV file relative to this script
-    csv_path = Path(r'C:\Users\shifa\OneDrive\Desktop\Thesis\Corpora\Reasoning Pipeline Output\reasoning_wide.csv')
+    csv_path = Path(r'reasoning_wide.csv')
     if not csv_path.exists():
         raise FileNotFoundError(
             f"CSV file not found at {csv_path}. Please ensure the file is in the working directory."
         )
-    output_dir = Path(r'C:\Users\shifa\OneDrive\Desktop\Thesis\Corpora\Reasoning Pipeline Output')
+    output_dir = Path(r'Reasoning Pipeline Output')
     # Load data
     df = load_data(csv_path)
     # Print basic overview
