@@ -11,7 +11,7 @@ macro_local  = sum(f1_local)/len(f1_local)
 
 # --- styling ---
 BAR_WIDTH = 0.28  # thinner bars
-COLORS = {"Global": "#1f5b86", "Local": "#65ad90"} #global = green, local = pink
+COLORS = {"Global": "#1f5b86", "Local": "#65ad90"} 
 EDGE = {"edgecolor": "black", "linewidth": 0.6}
 
 x = np.arange(len(types))
@@ -54,19 +54,18 @@ plt.show()
 ############################################################################################
 
 
-# Precision/Recall values (from your tables)
+# Precision/Recall values
 import numpy as np
 import matplotlib.pyplot as plt
 
 types = ["Inductive","Deductive","Abductive","Analogical"]
 
-# --- correct the inputs ---
 prec_global = [0.882, 0.905, 0.823, 0.882]
 rec_global  = [0.877, 0.673, 0.939, 0.600]
 prec_local  = [0.983, 0.907, 0.748, 0.771]
 rec_local   = [0.732, 0.665, 0.878, 0.638]
 
-# simple label dodger to enforce a minimum vertical gap
+# simple label dodger 
 def dodge_y(y_vals, min_gap=0.03, low=0.02, high=0.98):
     y = np.array(y_vals, float)
     order = np.argsort(y)              # bottom -> top
@@ -77,7 +76,7 @@ def dodge_y(y_vals, min_gap=0.03, low=0.02, high=0.98):
         v = min(max(v, low), high)
         y_adj[i] = v
         last = v
-    # compress if pushed out of bounds
+    
     if y_adj.max() > high:
         y_adj -= (y_adj.max() - high)
     if y_adj.min() < low:
@@ -87,8 +86,8 @@ def dodge_y(y_vals, min_gap=0.03, low=0.02, high=0.98):
 left_labels_y  = dodge_y(prec_global, min_gap=0.035)
 right_labels_y = dodge_y(rec_local,  min_gap=0.035)
 
-COL_G = "#1f5b86"   # global (blue)
-COL_L = "#65ad90"   # local (orange)
+COL_G = "#1f5b86"   
+COL_L = "#65ad90"   
 
 fig, ax = plt.subplots(figsize=(8, 4.5))
 
@@ -122,3 +121,4 @@ ax.grid(axis="y", linestyle=":", alpha=0.6)
 plt.tight_layout()
 plt.savefig("fig_classifier_precision_recall_by_type.png", dpi=300)
 plt.show()
+
