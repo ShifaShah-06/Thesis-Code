@@ -28,7 +28,7 @@ This project analyses a large matched corpus of undergraduate psychology essays 
 | reasoning_eda.py                  | Exploratory data analysis for reasoning corpus                |
 | reasoning_inferential_stats.py    | Paired t-test, Wilcoxon, effect sizes for reasoning markers   |
 | reasoning_shannon_stats.py        | Shannon diversity, richness, and overall density metrics      |
-| syntactic_analysis.py             | Extract and process syntactic metrics (nominalisations, etc.) |
+| syntactic_metrics.py             | Extract and process syntactic metrics (nominalisations, etc.) |
 | syntactic_eda_script.py           | EDA for syntactic features (plots, stats)                     |
 
 **Note:**  
