@@ -55,10 +55,10 @@ def process_sentences(text, filename):
 
 # Define the input directory on Desktop
 desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
-input_dir = os.path.join(r'C:\Users\shifa\OneDrive\Desktop\Thesis\Corpora\matchedGLOBALcorpus-4o-mini\matchedGLOBALcorpus-4o-mini copy')
+input_dir = os.path.join('Path to folder containing essays in .txt')
 
 # Output CSV file path
-output_csv = os.path.join(r'C:\Users\shifa\OneDrive\Desktop\Thesis\Corpora\global_gpt_redone.csv')
+output_csv = os.path.join('path to storing csv file')
 
 # Collect results from all files
 all_results = []
@@ -80,6 +80,7 @@ with open(output_csv, 'w', newline='', encoding='utf-8') as csvfile:
     writer.writerows(all_results)
 
 print(f"Results saved to: {output_csv}")
+
 
 
 
